@@ -6,24 +6,11 @@
 /*   By: monajjar <monajjar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:39:18 by monajjar          #+#    #+#             */
-/*   Updated: 2025/01/23 10:29:37 by monajjar         ###   ########.fr       */
+/*   Updated: 2025/01/25 15:31:21 by monajjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_stack **stack)
-{
-	t_node	*current;
-
-	current = (*stack)->top;
-	printf("stack A: \n");
-	while (current)
-	{
-		printf("---> %d\n", current->data);
-		current = current->next;
-	}
-}
 
 int	main(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 /*   By: monajjar <monajjar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 15:17:10 by monajjar          #+#    #+#             */
-/*   Updated: 2025/01/23 16:24:33 by monajjar         ###   ########.fr       */
+/*   Updated: 2025/01/25 18:52:20 by monajjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ static char	**split_arguments(int ac, char **av, t_stack **stack)
 	}
 	split = ft_split(numbers, ' ');
 	free(numbers);
-	if (!split)
+	if (!split || *split == NULL)
 	{
+		free_split(split);
+		free_stack(stack);
 		write(2, "Error\n", ft_strlenn("Error\n"));
 		exit (EXIT_FAILURE);
 	}
@@ -42,9 +44,10 @@ static void	valid_push(t_stack **stack_a, char **split)
 	i = 0;
 	while (split[i])
 	{
-		if (!is_valid_number(split[i]) || check_max(ft_atoi(split[i])))
+		if (!is_valid_number(split[i])
+			|| check_max(ft_atoi(split[i], stack_a, split)))
 			ft_error(stack_a, split);
-		value = ft_atoi(split[i]);
+		value = ft_atoi(split[i], stack_a, split);
 		if (is_duplicate(stack_a, value))
 			ft_error(stack_a, split);
 		push(stack_a, value);

@@ -6,7 +6,7 @@
 /*   By: monajjar <monajjar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:38:15 by monajjar          #+#    #+#             */
-/*   Updated: 2025/01/17 17:00:31 by monajjar         ###   ########.fr       */
+/*   Updated: 2025/01/25 18:50:16 by monajjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-long int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr, t_stack **a, char **split)
 {
 	int			i;
 	int			sign;
@@ -71,6 +71,8 @@ long int	ft_atoi(const char *nptr)
 	{
 		res *= 10;
 		res += nptr[i] - 48;
+		if ((res * sign) > INT_MAX || (res * sign) < INT_MIN)
+			ft_error(a, split);
 		i++;
 	}
 	return (res * sign);

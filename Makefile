@@ -6,7 +6,7 @@
 #    By: monajjar <monajjar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/24 11:40:43 by monajjar          #+#    #+#              #
-#    Updated: 2025/01/23 16:32:07 by monajjar         ###   ########.fr        #
+#    Updated: 2025/01/25 18:31:06 by monajjar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ CFLAGS := -Wall -Wextra -Werror -g
 
 CC = cc
 
-all: $(NAME)
+all: $(NAME) 
 
 $(NAME): $(OBJS)
 		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
@@ -56,4 +56,4 @@ fclean: clean
 	
 re: fclean all
 
-.SECONDARY: $(OBJS)
+.SECONDARY: $(OBJS) $(OBJSB)

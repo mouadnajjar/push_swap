@@ -6,17 +6,21 @@
 /*   By: monajjar <monajjar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:26:44 by monajjar          #+#    #+#             */
-/*   Updated: 2025/01/23 17:48:18 by monajjar         ###   ########.fr       */
+/*   Updated: 2025/01/25 17:22:48 by monajjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 #include "gnl/get_next_line.h"
 
-void	error_check(char *op)
+void	error_check(char *op, t_stack **stack_a, t_stack **stack_b)
 {
-	write(1, "Error\n", 6);
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
 	free(op);
+	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -35,7 +39,7 @@ int	main(int ac, char **av)
 	while (operation != NULL)
 	{
 		if ((valid_operations(operation, &stack_a, &stack_b)) == 0)
-			error_check(operation);
+			error_check(operation, &stack_a, &stack_b);
 		free(operation);
 		operation = get_next_line(0);
 	}

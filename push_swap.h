@@ -6,7 +6,7 @@
 /*   By: monajjar <monajjar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 15:54:13 by monajjar          #+#    #+#             */
-/*   Updated: 2025/01/23 17:37:48 by monajjar         ###   ########.fr       */
+/*   Updated: 2025/01/25 18:50:33 by monajjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_stack
 char		**ft_split(char const *s, char c);
 size_t		ft_strlen(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
-long int	ft_atoi(const char *nptr);
+long int	ft_atoi(const char *nptr, t_stack **a, char **split);
 char		*ft_strdup(const char *s);
 char		*get_args(int ac, char **av);
 int			free_split(char **result);
@@ -53,7 +53,6 @@ int			peek(t_stack **stack);
 int			min_data(t_stack **stack);
 int			stack_size(t_stack **stack);
 void		bring_top(t_stack **stack);
-void		print_stack(t_stack **stack);
 
 //Rules----------------------------------------/
 
